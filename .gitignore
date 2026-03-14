@@ -1,0 +1,32 @@
+# Neovim swap, backup, and undo files
+*.swp
+*.swo
+*.swn
+*.bak
+*.un~
+Session.vim
+nvimlog
+
+# Compiled Lua files
+*.lua.c
+
+# Operating System files
+.DS_Store # macOS
+Thumbs.db # Windows
+
+# Temporary files
+#*
+
+# LSP related files/directories
+.cache
+.cmp
+.lsp
+.null-ls
+
+# Packer/Lazy plugin manager related
+# If you are using a plugin manager that generates files in the root or specific folders
+# you might want to add them here. For example, for lazy.nvim:
+# lazy/
+
+# others
+vimfiles/
