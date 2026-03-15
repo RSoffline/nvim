@@ -67,4 +67,12 @@ return {
    })
  end
 },
+
+-- Run tasks
+{
+ "stevearc/overseer.nvim",
+ config = function()
+   require("overseer").setup()
+ end
+},
 }
