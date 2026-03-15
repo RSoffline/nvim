@@ -75,4 +75,16 @@ return {
    require("overseer").setup()
  end
 },
+
+-- lazy git
+{
+ "kdheepak/lazygit.nvim",
+ cmd = {
+   "LazyGit"
+ },
+ dependencies = {
+   "nvim-lua/plenary.nvim",
+ },
+},
+
 }
