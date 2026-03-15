@@ -4,5 +4,6 @@ if is_vscode then
     require("my_vscode")
 else
     require("plugin_manage")
+    require("lsp")
     require("option")
 end
