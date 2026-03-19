@@ -117,6 +117,7 @@ return {
          prompt_position = "top",
        },
        sorting_strategy = "ascending",
+       file_ignore_patterns = {"node_modules", ".git/"}
      },
    })
  end
