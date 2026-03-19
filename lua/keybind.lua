@@ -15,11 +15,12 @@ map("n", "<leader>b", tb.buffers, opts)
 -----------------------------
 -- Neo-tree（補助）
 -----------------------------
-map("n", "<leader>e", "<cmd>Neotree toggle<CR>", opts)
+map("n", "<leader>e", "<cmd>Neotree toggle float<CR>", opts)
 
 -----------------------------
 -- Git
 -----------------------------
+map("n", "<leader>lg", "<cmd>LazyGit<CR>", opts)
 map("n", "<leader>hp", "<cmd>Gitsigns preview_hunk<CR>", opts)
 map("n", "<leader>hb", "<cmd>Gitsigns blame_line<CR>", opts)
 
