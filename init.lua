@@ -6,4 +6,5 @@ else
     require("plugin_manage")
     require("lsp")
     require("option")
+    require("keybind")
 end
