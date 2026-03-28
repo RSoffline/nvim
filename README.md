@@ -111,23 +111,57 @@ LSP（言語サーバー）の動作に必要です。`mason.nvim` を通じて�
 
 ---
 
-## 拡張機能（プラグイン）の構成
+## 拡張機能と設定内容
 
-主なプラグインと役割は以下の通りです。
+主なプラグインの具体的な設定内容は以下の通りです。
 
-- **LSP / 補完**:
-  - `mason.nvim`: 言語サーバーの管理。
-  - `nvim-lspconfig`: LSPの各サーバー設定。
-  - `nvim-cmp`: 補完エンジン（手動起動 `autocomplete = false` に設定済み）。
-- **UI / 外観**:
-  - `neo-tree.nvim`: 高機能ファイラー。
-  - `telescope.nvim`: ファジーファインダー。
-  - `gitsigns.nvim`: エディタの端にGitの変更を表示。
-- **編集支援**:
-  - `nvim-surround`: 括弧や引用符での囲み操作。
-  - `Comment.nvim`: コメントアウトの簡略化。
-  - `nvim-autopairs`: 括弧の自動補完。
-  - `project.nvim`: プロジェクト単位のディレクトリ管理。
+### LSP / 補完
+- **[mason.nvim](https://github.com/williamboman/mason.nvim)**:
+  - 言語サーバーのインストールと管理を行います。
+- **[nvim-lspconfig](https://github.com/neovim/nvim-lspconfig)**:
+  - 以下の言語サーバーが有効化されています：
+    - `pyright` (Python)
+    - `rust_analyzer` (Rust)
+    - `jsonls` (JSON)
+    - `yamlls` (YAML)
+    - `marksman` (Markdown)
+- **[nvim-cmp](https://github.com/hrsh7th/nvim-cmp)**:
+  - **手動補完**: `autocomplete = false` に設定されており、入力中に勝手に候補が出ないようになっています。`<C-Space>` で手動起動します。
+  - **確定**: `<CR>` (Enter) で選択中の候補を確定します。
+
+### 検索 / ファイラー
+- **[telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)**:
+  - UI: レイアウトは `horizontal`、プロンプトは上部 (`top`) に配置し、結果を昇順 (`ascending`) で表示します。
+  - 除外設定: `node_modules` や `.git/` は検索対象から外れます。
+- **[neo-tree.nvim](https://github.com/nvim-neo-tree/neo-tree.nvim)**:
+  - 最後のウィンドウを閉じると自動で終了するよう設定されています。
+  - `follow_current_file`: 現在開いているファイルに合わせてツリーのフォーカスが自動で追従します。
+- **[project.nvim](https://github.com/ahmedkhalf/project.nvim)**:
+  - `.git`, `pyproject.toml`, `Cargo.toml`, `package.json` などを検知して、自動的にプロジェクトルートへ移動します。
+
+### Git
+- **[gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim)**:
+  - 変更箇所をエディタの左端（サインカラム）に表示します。
+- **[lazygit.nvim](https://github.com/kdheepak/lazygit.nvim)**:
+  - Neovim内から浮遊ウィンドウで LazyGit を起動します。
+
+### 編集支援
+- **[nvim-surround](https://github.com/kylechui/nvim-surround)**: `ysw"` (単語を"で囲む) などの囲み編集。
+- **[Comment.nvim](https://github.com/numToStr/Comment.nvim)**: `gcc` で行コメント、`gc` + モーションで範囲コメント。
+- **[nvim-autopairs](https://github.com/windwp/nvim-autopairs)**: 括弧の自動補完。
+- **[overseer.nvim](https://github.com/stevearc/overseer.nvim)**: タスクの実行管理。
+
+---
+
+## 基本設定 (option.lua)
+
+- **外観**:
+  - `relativenumber`: 相対行番号を表示。
+  - **透過背景**: ターミナルの背景を活かすため、Neovimの背景を透過させています。
+  - **不可視文字の可視化**: 半角スペース (`·`), タブ (`» `), 改行 (`↲`) などを表示します。
+- **挙動**:
+  - `clipboard = 'unnamedplus'`: システムクリップボードとの連携。
+  - `tabstop / shiftwidth = 4`: タブ幅を4文字分、スペースで挿入。
 
 ---
 
