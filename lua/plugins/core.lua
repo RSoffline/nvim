@@ -166,8 +166,21 @@ return {
         "markdown",
       },
       install_dir = vim.fn.stdpath("data") .. "/site",
-      highlight = {enable = true},
+      highlight = {
+          enable = true,
+          additional_vim_regex_highlighting = false,
+      },
     })
   end,
+},
+
+-- color scheme
+{
+    "folke/tokyonight.nvim",
+    lazy = false,
+    priority = 1000,
+    config = function()
+        require("tokyonight").setup()
+    end,
 },
 }

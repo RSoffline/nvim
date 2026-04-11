@@ -5,6 +5,7 @@ if is_vscode then
 else
     require("option")
     require("plugin_manage")
+    require("color_setting")
     require("keybind")
     require("lsp")
 end
