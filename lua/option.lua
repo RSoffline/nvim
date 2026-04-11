@@ -4,6 +4,7 @@ local opt = vim.opt
 opt.relativenumber = true
 opt.number = true
 vim.opt.clipboard = 'unnamedplus'
+vim.g.mapleader = " "
 
 -- 色設定
 -- ターミナルに合わせて背景を透過する
