@@ -1,8 +1,6 @@
 local map = vim.keymap.set
 local opts = { noremap = true, silent = true }
 
-vim.g.mapleader = " "
-
 -----------------------------
 -- Telescope（主役）
 -----------------------------
