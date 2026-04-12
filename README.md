@@ -6,12 +6,13 @@ VS CodeのNeovim拡張機能との共用も考慮された設計になってい�
 ## 概要
 - **プラグインマネージャ**: [lazy.nvim](https://github.com/folke/lazy.nvim)
 - **特徴**:
-  - LSPによる高度なコード補完と定義ジャンプ
-  - Telescopeによる高速なファイル/文字列検索
-  - Neo-treeによるファイラー機能
-  - LazyGitの統合による強力なGit操作
-  - ターミナルの背景を透過させるデザイン設定
-  - VS Code Neovim拡張利用時は軽量な専用設定 (`my_vscode.lua`) を読み込み
+  - **ハイライト**: `nvim-treesitter` による高度なシンタックスハイライト
+  - **カラースキーム**: `tokyonight.nvim` を採用し、ターミナルの背景を透過させる美しいデザイン
+  - **LSP**: 内蔵LSPによる高度なコード補完と定義ジャンプ
+  - **Telescope**: 高速なファイル/文字列検索
+  - **Neo-tree**: モダンなファイラー機能
+  - **LazyGit**: 強力なGit操作の統合
+  - **VS Code共用**: Neovim拡張利用時は軽量な専用設定 (`my_vscode.lua`) を自動読み込み
 
 ---
 
@@ -137,7 +138,7 @@ LSP（言語サーバー）の動作に必要です。`mason.nvim` を通じて�
   - 最後のウィンドウを閉じると自動で終了するよう設定されています。
   - `follow_current_file`: 現在開いているファイルに合わせてツリーのフォーカスが自動で追従します。
 - **[project.nvim](https://github.com/ahmedkhalf/project.nvim)**:
-  - `.git`, `pyproject.toml`, `Cargo.toml`, `package.json` などを検知して、自動的にプロジェクトルートへ移動します。
+  - `.git`, `pyproject.toml`, `Cargo.toml`, `package.json`, `.nvim.lua` などを検知して、自動的にプロジェクトルートへ移動します。
 
 ### Git
 - **[gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim)**:
@@ -145,7 +146,11 @@ LSP（言語サーバー）の動作に必要です。`mason.nvim` を通じて�
 - **[lazygit.nvim](https://github.com/kdheepak/lazygit.nvim)**:
   - Neovim内から浮遊ウィンドウで LazyGit を起動します。
 
-### 編集支援
+### 外観 / 編集支援
+- **[tokyonight.nvim](https://github.com/folke/tokyonight.nvim)**:
+  - メインのカラースキーム。透過設定を有効にし、UIの各パーツ（サイドバー、フロート等）を背景に馴染ませています。
+- **[nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter)**:
+  - 構文解析による正確なシンタックスハイライト。Lua, Python, Rust, Markdown 等の主要言語に対応しています。
 - **[nvim-surround](https://github.com/kylechui/nvim-surround)**: `ysw"` (単語を"で囲む) などの囲み編集。
 - **[Comment.nvim](https://github.com/numToStr/Comment.nvim)**: `gcc` で行コメント、`gc` + モーションで範囲コメント。
 - **[nvim-autopairs](https://github.com/windwp/nvim-autopairs)**: 括弧の自動補完。
