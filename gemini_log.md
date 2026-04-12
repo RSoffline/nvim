@@ -33,3 +33,33 @@
 
 ## 4. 完了
 以上の修正により、Neovim の実際の挙動・設定値とドキュメントの内容が完全に一致した状態になりました。
+
+---
+
+# Gemini CLI 作業ログ: lua/plugins/core.lua の分割と構成整理 (2026-04-12 15:52 JST)
+
+## 1. 依頼内容
+`lua/plugins/core.lua` にまとめられていたプラグイン設定を、機能ごとのフォルダとファイルに分割し、`core.lua` でそれらを集約・管理できるようにする。
+
+## 2. 実施内容
+以下の手順で構成の再編を行いました。
+
+### ディレクトリの作成
+以下のカテゴリフォルダを `lua/plugins/` 配下に作成しました。
+- `lsp/`, `ui/`, `editor/`, `tools/`
+
+### プラグイン設定の抽出
+`core.lua` から各プラグインの設定を抽出し、個別のファイルとして保存しました。
+- **lsp/**: `mason.lua`, `lspconfig.lua`, `cmp.lua`
+- **ui/**: `tokyonight.lua`, `neotree.lua`, `telescope.lua`, `gitsigns.lua`
+- **editor/**: `surround.lua`, `comment.lua`, `autopairs.lua`, `treesitter.lua`
+- **tools/**: `project.lua`, `overseer.lua`, `lazygit.lua`
+
+### core.lua のアグリゲータ化
+`core.lua` を、作成した各フォルダを `import` するだけの構成に書き換えました。これにより、特定の機能グループ（例：LSP関連など）をコメントアウト1行で一括無効化できるようになりました。
+
+### クリーンアップ
+フォルダ名と競合する可能性があった空ファイル `lua/plugins/lsp.lua` を削除しました。
+
+## 3. 完了
+プラグイン設定が粒度の細かいファイル群に整理され、メンテナンス性と視認性が向上しました。
