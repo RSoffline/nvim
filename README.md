@@ -151,6 +151,7 @@ LSP（言語サーバー）の動作に必要です。`mason.nvim` を通じて�
   - メインのカラースキーム。透過設定を有効にし、UIの各パーツ（サイドバー、フロート等）を背景に馴染ませています。
 - **[nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter)**:
   - 構文解析による正確なシンタックスハイライト。Lua, Python, Rust, Markdown 等の主要言語に対応しています。
+- **[hlchunk.nvim](https://github.com/shellRaining/hlchunk.nvim)**: インデントガイドと現在のコードブロック（チャンク）の強調表示。
 - **[nvim-surround](https://github.com/kylechui/nvim-surround)**: `ysw"` (単語を"で囲む) などの囲み編集。
 - **[Comment.nvim](https://github.com/numToStr/Comment.nvim)**: `gcc` で行コメント、`gc` + モーションで範囲コメント。
 - **[nvim-autopairs](https://github.com/windwp/nvim-autopairs)**: 括弧の自動補完。
@@ -172,23 +173,16 @@ LSP（言語サーバー）の動作に必要です。`mason.nvim` を通じて�
 
 ## 拡張機能の追加方法
 
-新しいプラグインを追加する場合は、`lua/plugins/core.lua` の `return { ... }` リストの中に設定を記述してください。
+新しいプラグインを追加する場合は、`lua/plugins/` 配下の適切なディレクトリ（`ui/`, `editor/`, `lsp/`, `tools/` など）に新しい `.lua` ファイルを作成してください。`lazy.nvim` により自動的に読み込まれます。
 
-**例: `lspsaga.nvim` を追加する場合**
+**例: `lua/plugins/ui/example.lua` を作成する場合**
 ```lua
 return {
-  -- 既存のプラグイン...
-
-  -- 新しいプラグインを追加
   {
-    "nvimdev/lspsaga.nvim",
+    "author/example.nvim",
     config = function()
-      require("lspsaga").setup({})
+      require("example").setup({})
     end,
-    dependencies = {
-      "nvim-treesitter/nvim-treesitter",
-      "nvim-tree/nvim-web-devicons",
-    }
   },
 }
 ```
