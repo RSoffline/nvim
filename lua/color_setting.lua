@@ -41,7 +41,7 @@ vim.api.nvim_set_hl(0, "TabLineFill", { bg = "NONE" })
 vim.api.nvim_set_hl(0, "TabLineSel", { bg = "NONE" })
 
 -- ===== visual mode =====
-vim.api.nvim_set_hl(0, "Visual", { bg = "#2e3c64", })
+-- vim.api.nvim_set_hl(0, "Visual", { bg = "#2e3c64", })
 
 -- ===== その他 =====
 vim.api.nvim_set_hl(0, "SpecialKey", { fg = "#969696", bg = "NONE" })
