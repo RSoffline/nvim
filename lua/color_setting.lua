@@ -1,13 +1,5 @@
 -- 色設定
-require("tokyonight").setup({
-    transparent = true,
-    styles = {
-        sidebars = "transparent",
-        floats = "transparent",
-    },
-})
-
-vim.cmd.colorscheme("tokyonight")
+vim.cmd.colorscheme("wisteria")
 
 -- ターミナルに合わせて背景を透過する
 vim.opt.termguicolors = true
