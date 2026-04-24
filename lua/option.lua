@@ -5,6 +5,8 @@ opt.relativenumber = true
 opt.number = true
 vim.opt.clipboard = 'unnamedplus'
 vim.g.mapleader = " "
+vim.opt.exrc = true
+vim.opt.secure = true
 
 -- 空白文字の可視化
 vim.opt.list = true
