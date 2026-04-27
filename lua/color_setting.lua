@@ -45,3 +45,4 @@ vim.api.nvim_set_hl(0, "TabLineSel", { bg = "NONE" })
 
 -- ===== その他 =====
 vim.api.nvim_set_hl(0, "SpecialKey", { fg = "#969696", bg = "NONE" })
+vim.api.nvim_set_hl(0, "DiagnosticUnnecessary", {})
