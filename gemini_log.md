@@ -97,3 +97,23 @@
 
 ## 3. 完了
 `README.md` が最新のプラグイン構成および推奨される設定管理ルールを反映した状態になりました。
+
+---
+
+# Gemini CLI 作業ログ: 言語サポート（LSP/Tree-sitter）追加手順のドキュメント化 (2026-05-03 12:00 JST)
+
+## 1. 依頼内容
+現在の構成（Neovim 0.11+ のLSP APIおよび `lazy.nvim` による分割管理）において、新しい言語のLSPとTree-sitterを追加する手順を調査し、`README.md` に追記する。
+
+## 2. 実施内容
+以下の手順を調査・確認し、`README.md` に「言語（LSP/Tree-sitter）の追加方法」セクションとして追記しました。
+
+- **LSPの追加**:
+    - `lua/lsp.lua` の `servers` リストへの追記。
+    - `:Mason` コマンドによるサーバーのインストール。
+- **Tree-sitterの追加**:
+    - `lua/plugins/editor/treesitter.lua` の `ensure_installed` リストへの追記。
+    - 保存・再起動による自動インストール、または `:TSUpdate` による手動更新。
+
+## 3. 完了
+新しい言語のサポートを追加する際の手順が明文化され、メンテナンス性が向上しました。
