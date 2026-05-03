@@ -24,6 +24,7 @@ servers = {
     "jsonls",
     "yamlls",
     "marksman",
+    "haskell-language-server",
 }
 
 for i = 1, #servers do
