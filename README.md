@@ -187,3 +187,17 @@ return {
 }
 ```
 保存後、Neovimを再起動するか、`:Lazy install` を実行することで反映されます。
+
+---
+
+## 言語（LSP/Tree-sitter）の追加方法
+
+新しいプログラミング言語のサポートを追加する手順は以下の通りです。
+
+### 1. LSP (Language Server) の追加
+1. `lua/lsp.lua` を開き、`servers` テーブルにLSPサーバー名（例: `"gopls"`, `"vtsls"`）を追記します。
+2. Neovimを起動し、`:Mason` コマンドを実行して、追加したサーバーを検索・インストールします。
+
+### 2. Tree-sitter (構文解析・ハイライト) の追加
+1. `lua/plugins/editor/treesitter.lua` を開き、`ensure_installed` テーブルに言語名（例: `"go"`, `"typescript"`）を追記します。
+2. 保存して再起動すると自動的にインストールが始まります（手動の場合は `:TSUpdate`）。
