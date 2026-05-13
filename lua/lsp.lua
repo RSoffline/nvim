@@ -25,6 +25,7 @@ servers = {
     "yamlls",
     "marksman",
     "haskell-language-server",
+    "gleam"
 }
 
 for i = 1, #servers do
