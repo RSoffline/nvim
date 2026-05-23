@@ -1,0 +1,27 @@
+local overseer = require("overseer")
+local cmd = {"your command"}
+
+local function run_cmd(cmd, args)
+  overseer.new_task({
+    cmd = cmd,
+    args = args,
+    cwd = vim.fn.getcwd(),
+    components = { "default" },
+  }):start()
+end
+
+vim.api.nvim_create_user_command("Build", function()
+  run_cmd(cmd, { "build" })
+end, {})
+
+vim.api.nvim_create_user_command("Run", function()
+  run_cmd(cmd, { "run" })
+end, {})
+
+vim.api.nvim_create_user_command("Check", function()
+  run_cmd(cmd, { "check" })
+end, {})
+
+vim.api.nvim_create_user_command("Test", function()
+  run_cmd(cmd, { "test" })
+end, {})
