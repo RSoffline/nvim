@@ -9,4 +9,5 @@ else
     require("color_setting")
     require("keybind")
     require("lsp")
+    require("template")
 end
