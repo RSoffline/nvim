@@ -1,25 +1,19 @@
 return {
-  "nvim-treesitter/nvim-treesitter",
-  build = ":TSUpdate",
-  branch = "master",
-  config = function()
-    local ts = require("nvim-treesitter.configs")
-
-    -- 基本セットアップ（新API）
-    ts.setup({
-      ensure_installed =  {
-        "lua",
-        "vim",
-        "vimdoc",
-        "python",
-        "rust",
-        "markdown",
-      },
-      install_dir = vim.fn.stdpath("data") .. "/site",
-      highlight = {
-          enable = true,
-          additional_vim_regex_highlighting = false,
-      },
-    })
-  end,
+    "nvim-treesitter/nvim-treesitter",
+    lazy = false,
+    build = ":TSUpdate",
+    branch = "main",
+    opts = {
+        install_dir = vim.fn.stdpath("data") .. "/site",
+    },
+    config = function(_, opts)
+        local ts = require("nvim-treesitter")
+        ts.setup(opts)
+        ts.install {
+            "python",
+            "rust",
+            "gleam",
+            "haskell",
+        }
+    end,
 }
