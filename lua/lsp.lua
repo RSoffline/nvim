@@ -19,7 +19,7 @@ end
 
 -- 必要なものだけ
 servers = {
-    "pyright",
+    "pyrefly",
     "rust_analyzer",
     "jsonls",
     "yamlls",
